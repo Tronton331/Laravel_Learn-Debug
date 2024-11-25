@@ -91,7 +91,7 @@
             border-radius: 20px;
             background-color: rgba(174, 121, 117, 5);
         }
-        h3
+        div.info>h3
         {
         position: relative;
         font-size: 15px;
@@ -100,20 +100,52 @@
         background-color: rgba(0, 255, 0, 0.5);
         padding: 5px;
         padding-left: 10px;
-        width: 35%;
+        width: 30%;
         }
+        div.red>h3
+        {
+        position: relative;
+        font-size: 15px;
+        border: 1px, solid, red;
+        border-radius: 20px;
+        background-color: rgba(255, 0, 0, 0.5);
+        padding: 5px;
+        padding-left: 10px;
+        width: 30%;
+        }
+        .info, .red
+        {
+        position: absolute;
+        width: 100%;
+        }
+
     </style>
 </head>
 <body>
-    @if (session()->has('success'))
-        <h3>{{session('success')}}</h3>
-    @endif
+    <div class="info">
+        @if (session()->has('success'))
+            <h3>{{session('success')}}</h3>
+        @endif
+    </div>
+    <div class="red">
+        @error('name')
+            <h3>Ur name so bad</h3>
+        @enderror
+        @error('password')
+            <h3>Ur password false</h3>
+        @enderror
+        @if (session()->has("nologin"))
+            <h3>{{session("nologin")}}</h3>
+        @endif
+    </div>
     <main>
         <h2 class="login">Login</h2>
-        <form name="login">
+        <form name="login" action="login" method="POST">
+            @csrf
+
             <div class="username">
                 <label for="username" class="user">Username:</label><br>
-                <input type="text" name="username" id="username" class="input_text" required><br>
+                <input type="text" name="name" id="username" class="input_text" required value="{{old('name')}}"><br>
             </div>
             <div class="password">
                 <label for="password" class="pass">Password:</label><br>

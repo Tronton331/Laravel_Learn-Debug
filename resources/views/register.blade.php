@@ -104,20 +104,27 @@
             background-color: rgba(255, 0, 0, 0.5);
             padding: 5px;
             padding-left: 10px;
-            width: 35%;
+            width: 30%;
+        }
+        .info
+        {
+            position: absolute;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    @error('name')
-        <h3>Ur name so bad bro!</h3>
-    @enderror
-    @error('email')
-        <h3>Write true email please, I will heck u :D</h3>
-    @enderror
-    @error('password')
-        <h3>Ur password like Kominfo!?</h3>
-    @enderror
+    <div class="info">
+        @error('name')
+            <h3>Ur name so bad bro!</h3>
+        @enderror
+        @error('email')
+            <h3>Write true email please, I will heck u :D</h3>
+        @enderror
+        @error('password')
+            <h3>Ur password like Kominfo!?</h3>
+        @enderror
+    </div>
     <main>
         <h2 class="login">Register</h2>
         <form name="register" action="register" method="POST">

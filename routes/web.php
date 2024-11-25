@@ -23,7 +23,10 @@ use App\Http\Controllers\RegisterController;
 Route::redirect('/', 'login');
 
 Route::get('login', [LoginController::class, 'index'] );
+Route::post('login', [LoginController::class,'auth'] );
 
 Route::get('register', [RegisterController::class,'index'] );
 Route::post('register', [RegisterController::class,'store'] );
+
+
 
