@@ -22,10 +22,14 @@ use App\Http\Controllers\RegisterController;
 
 Route::redirect('/', 'login');
 
+Route::get('welcome', function() {
+    return view('welcome');
+});
+
 Route::get('login', [LoginController::class, 'index'] );
 Route::post('login', [LoginController::class,'auth'] );
 
-Route::get('register', [RegisterController::class,'index'] );
+Route::get('register', [RegisterController::class,'index'] )->name('register');
 Route::post('register', [RegisterController::class,'store'] );
 
 

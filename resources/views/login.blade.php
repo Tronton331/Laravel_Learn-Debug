@@ -128,7 +128,7 @@
         @endif
     </div>
     <div class="red">
-        @error('name')
+        @error('username')
             <h3>Ur name so bad</h3>
         @enderror
         @error('password')
@@ -145,7 +145,7 @@
 
             <div class="username">
                 <label for="username" class="user">Username:</label><br>
-                <input type="text" name="name" id="username" class="input_text" required value="{{old('name')}}"><br>
+                <input type="text" name="username" id="username" class="input_text" required value="{{old('username')}}"><br>
             </div>
             <div class="password">
                 <label for="password" class="pass">Password:</label><br>

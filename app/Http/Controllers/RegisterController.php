@@ -17,9 +17,11 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $newUser = $request->validate([
-            'name' => 'required|max:255',
+            'username' => 'required|max:255',
             'email'=> 'required|max:255|email:dns',
             'password'=> 'required|min:8|max:255',
+            'firstname' => 'required|max:255',
+            'lastname' => 'max:255',
         ]);
 
         // Buat User

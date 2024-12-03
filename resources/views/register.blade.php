@@ -41,7 +41,7 @@
 
             background-color: rgba(0, 0, 0, 0.2);
             padding: 10px 50px;
-            height: 360px;
+            height: 460px;
             width: 200px;
             border: 2px solid black;
             border-radius: 30px;
@@ -86,10 +86,20 @@
             position: relative;
             top: 20px;
         }
-        .button
+        .firstname
+        {
+            position: relative;
+            top: 30px;
+        }
+        .lastname
         {
             position: relative;
             top: 40px;
+        }
+        .button
+        {
+            position: relative;
+            top: 80px;
             padding: 10px 20px;
             border: 1px solid;
             border-radius: 20px;
@@ -115,7 +125,7 @@
 </head>
 <body>
     <div class="info">
-        @error('name')
+        @error('username')
             <h3>Ur name so bad bro!</h3>
         @enderror
         @error('email')
@@ -123,6 +133,12 @@
         @enderror
         @error('password')
             <h3>Ur password like Kominfo!?</h3>
+        @enderror
+        @error('firstname')
+            <h3>Are u serious?!</h3>
+        @enderror
+        @error('lastname')
+            <h3>Ur family name so long, are u sure?</h3>
         @enderror
     </div>
     <main>
@@ -132,8 +148,8 @@
             @csrf
 
             <div class="name">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" class="input_text" required value="{{old('name')}}"><br>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" class="input_text" required value="{{old('username')}}"><br>
             </div>
             <div class="email">
                 <label for="email">Email</label>
@@ -142,6 +158,14 @@
             <div class="password">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" class="input_text" required><br>
+            </div>
+            <div class="firstname">
+                <label for="firstname">Firstname</label>
+                <input type="text" name="firstname" id="firstname" class="input_text" required><br>
+            </div>
+            <div class="lastname">
+                <label for="lastname">Lastname</label>
+                <input type="text" name="lastname" id="" class="input_text" required><br>
             </div>
             <input type="submit" value="register" class="button">
         </form>

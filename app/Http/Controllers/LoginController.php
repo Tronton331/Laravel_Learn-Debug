@@ -20,13 +20,13 @@ class LoginController extends Controller
     public function auth(Request $request)
     {
         $login = $request->validate([
-            'name' => 'required|max:255',
+            'username' => 'required|max:255',
             'password' => 'required|min:8',
         ]);
 
         if (Auth::attempt($login)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashbord');
+            return redirect()->intended('welcome');
         }
 
         return back()->with("nologin", "Idk what happend here");
